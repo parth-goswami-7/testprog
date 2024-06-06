@@ -1,0 +1,6 @@
+@import "../../../Mixin/Mixin.scss";
+
+.bgColor {    
+        
+    @include h2clr(yellow)
+}

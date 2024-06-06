@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react'
+import data from './Json'
+import './App.css'
+import axios from 'axios'
 
-function App() {
+const App = () => {
+
+  const[data, setData] = useState([])
+  useEffect(() => {
+    axios.get('https://jsonplaceholder.typicode.com/photos')
+    .then((res) => setData(res.data))
+    //console.log(data)
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+    // -------------- api calling from url json ------------
+    <div className='main-grid'>
+      {
+        data
+        .slice(0,5)
+        .map((item) => {
+
+          return(
+            <div>
+            <img src={item.thumbnailUrl} alt='' height={200} width={200}/> 
+             
+            </div>
+          )
+        })
+    // -------------- api calling from local json ------------  
+    // data
+    // .sort((a,b) => b.id - a.id)
+    // .map((item) => {
+
+    //   return(
+
+    //     <img src={item.thumbnailUrl} alt='' height={200} width={200} />
+    //   )
+    // })
+    }
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

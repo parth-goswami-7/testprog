@@ -1,0 +1,22 @@
+@mixin h2clr($bgclr){
+
+    background-color: $bgclr;        
+}
+@mixin btn($bgclr,$col,$hov,$flt){
+    background-color: $bgclr;
+    color: $col;
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;        
+    float: $flt;
+    
+    &:hover{
+        background-color: $hov;
+    }
+}
+@mixin lbl{
+
+    font-size: "larger";
+    font-family: "'Courier New', Courier, monospace";
+    font-weight: "600";  
+}
